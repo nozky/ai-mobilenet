@@ -1,0 +1,34 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+body > * {
+  margin-top: 1rem;
+}
+
+fieldset{
+  min-width: 40%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem 0.5rem;
+}
+
+fieldset h4{
+  margin: 0.5rem;
+}
+
+#errorElement{
+  color: red;
+}
