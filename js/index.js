@@ -18,9 +18,7 @@ const contraints  = {
   video: true,
 }
 
-
 // video 
-
 navigator.mediaDevices.getUserMedia(contraints)
   .then ((stream)=>{
     let videoTracks = stream.getVideoTracks();
@@ -29,12 +27,10 @@ navigator.mediaDevices.getUserMedia(contraints)
     console.log('Using video device: ' + videoTracks[0].label);
     stream.onremovetrack = () => { console.log('Stream end') } 
     
-
     // window.stream = stream;
     video.srcObject = stream;
     video.play();
     
-  
   }).catch( (error)=> {
     if (error.name === 'ConstraintNotSatisfiedError') {
       errorMsg('The resolution ' + constraints.video.width.exact + 'x' +
@@ -55,7 +51,6 @@ navigator.mediaDevices.getUserMedia(contraints)
     }
   }
 
-
   // classifier
   const loop = (classifier) => {
     classifier.classify().then(results => {
@@ -65,13 +60,10 @@ navigator.mediaDevices.getUserMedia(contraints)
       setTimeout(()=> loop(classifier),500)
     });
   };
-
   
   // Initialize the Image Classifier method with MobileNet passing the video as the
 // second argument and the getClassification function as the third
 ml5.imageClassifier("MobileNet", video).then(classifier => loop(classifier));
-
-
 
 // capture button
 captureBtn.addEventListener('click',()=>{
