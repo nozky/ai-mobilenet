@@ -20,6 +20,7 @@ const contraints  = {
 
 
 // video 
+
 navigator.mediaDevices.getUserMedia(contraints)
   .then ((stream)=>{
     let videoTracks = stream.getVideoTracks();
@@ -31,6 +32,7 @@ navigator.mediaDevices.getUserMedia(contraints)
 
     // window.stream = stream;
     video.srcObject = stream;
+    video.play();
     
   
   }).catch( (error)=> {
@@ -46,7 +48,7 @@ navigator.mediaDevices.getUserMedia(contraints)
   })
 
   // video error callback handler
-  function errorMsg(msg, error) {
+  const errorMsg =(msg, error) => {
     errorElement.innerHTML += '<p>' + msg + '</p>';
     if (typeof error !== 'undefined') {
       console.error(error);
